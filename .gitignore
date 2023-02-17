@@ -1,0 +1,10 @@
+venv/
+debug.log*
+*.pyc
+.kube
+.DS_Store
+.vscode/
+.jwt
+
+*.png
+*.svg
