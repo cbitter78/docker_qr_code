@@ -11,7 +11,7 @@ This docker container will create a QR code and write it to a png file.  The png
 ```shell
 docker run --rm -ti -v $PWD:/output cbitter78/qr_code https://google.com qr.png
 ```
-This defines the output folder and the current folder.  The QR Code will be written to qr.png in the current folder.
+This defines the output folder as the current folder so that the QR Code will be written to qr.png in the current folder.
 
 ## Local Docker Build
 
