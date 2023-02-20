@@ -20,3 +20,15 @@ You can build the docker image locally with
 ```shell
 docker build --rm -q -t cbitter78/qr_code:localtest
 ```
+
+## Release
+
+Tag then Release
+
+```shell
+
+git tag -a v1.0.0 -m "Message"
+git push --tags
+
+
+```

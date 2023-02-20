@@ -1,9 +1,14 @@
 name: Publish Docker image
+# You need a Read, Write, Delete DockerHub Token 
+# It needs to be stored as a repo secret.
+# You must set:
+# vars.DOCKERHUB_REPO
+# secrets.DOCKERHUB_USERNAME
+# secrets.DOCKERHUB_TOKEN
 
 on:
   release:
     types: [published]
-
 
 jobs:
   push_to_registry:
@@ -23,7 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: cbitter78/qr_code
+          images: ${{ vars.DOCKERHUB_REPO }} 
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
@@ -38,7 +43,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: cbitter78/pandoc
+          repository: ${{ vars.DOCKERHUB_REPO }}
           readme: "./README.md"
 
 
